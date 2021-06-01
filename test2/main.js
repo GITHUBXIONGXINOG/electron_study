@@ -10,6 +10,11 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 600,
         height: 600,
+        // 在渲染进程中使用node, 需要要配置webPreferences属性
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
     })
     //设置网页,加载html页面
     mainWindow.loadFile('index.html')
